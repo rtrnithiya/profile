@@ -29,7 +29,7 @@
 
 
     .evidence-content{background:#fff;padding:14px}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .evidence-item{background:#fffafa;min-height:90px}.evidence-item img{width:100%;max-height:170px;object-fit:cover;border-radius:6px;margin-top:5px}
+    .evidence-item{background:#fffafa;min-height:90px}.evidence-item img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:6px;margin-top:7px}
     .evidence-item .evidence-missing{display:block;background:#fff;border:1px dashed #e3c4c8;border-radius:6px;padding:12px;text-align:center}
     .ryla-gallery-wrap{margin-top:20px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:12px}
     .ryla-gallery-wrap h4{margin:0 0 4px;color:var(--red);font:600 19px "Playfair Display"}
@@ -38,16 +38,48 @@
     .ryla-photo-placeholder{aspect-ratio:1/1;border:1px dashed #d9a5ac;border-radius:9px;background:#fff7f7;display:grid;place-items:center;text-align:center;padding:10px;color:#9b6970;font-size:12px}
     .ryla-photo-grid img{width:100%;height:100%;object-fit:cover;border-radius:9px;aspect-ratio:1/1}
     .ryla-photo-slot{position:relative;aspect-ratio:1/1}.ryla-photo-slot a{position:absolute;bottom:8px;right:8px;background:white;color:var(--red);padding:5px 8px;border-radius:6px;font-size:10px;font-weight:700}
-    .evidence-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:6px}.evidence-mini-grid img{width:100%;height:90px;object-fit:cover;border-radius:6px}
+    .evidence-mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px;align-items:start}.evidence-mini-grid a{display:block}.evidence-mini-grid img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:7px}
     @media(max-width:600px){.ryla-photo-grid{grid-template-columns:repeat(2,1fr)}.task-head{grid-template-columns:36px 1fr auto;gap:8px;padding:13px}.task-progress{font-size:11px}.task-body{padding-left:16px}.evidence-grid{grid-template-columns:1fr}}
 
     @media(max-width:800px){.links{display:none;position:absolute;top:74px;left:0;right:0;background:white;padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}.links.show{display:flex}.menu{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding:60px 0}.hero-grid{gap:38px}.portrait{max-width:310px}.award-grid,.work-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.resume{align-items:flex-start;flex-direction:column}.dtd-top{flex-direction:column}.photo-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:500px){section{padding:60px 0}.container{width:min(100% - 30px,1120px)}.award-grid,.work-grid,.subpanels{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.dtd-wrap{padding:18px}.photo-grid{grid-template-columns:1fr 1fr}.section-head h2{font-size:35px}}
+
+    /* Evidence images keep their original proportions; PDFs open with a simple View link. */
+    .evidence-item img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:6px;margin-top:7px}
+    .evidence-mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px;align-items:start}
+    .evidence-mini-grid a{display:block}
+    .evidence-mini-grid img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:7px}
+    .evidence-item a{display:inline-block;margin-top:5px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .gallery-item{aspect-ratio:1/1;background:linear-gradient(145deg,#f3dadd,#fff3f4);border-radius:10px;overflow:hidden;display:grid;place-items:center;color:#9c6670}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+    .ryla-gallery-wrap{margin-top:16px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+    .ryla-gallery-wrap h4{margin:0 0 12px;color:var(--red);font:600 19px "Playfair Display"}
+    .ryla-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+    .ryla-photo-slot{min-width:0}
+    .ryla-photo-slot img{display:block;width:100%;height:auto;object-fit:contain;border-radius:8px}
+    .ryla-photo-placeholder{aspect-ratio:4/3;border:1px dashed #d9a5ac;border-radius:9px;background:#fff7f7;display:grid;place-items:center;text-align:center;padding:10px;color:#9b6970;font-size:12px}
+    @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:500px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:1fr 1fr}}
+
+  
+    .ryla-gallery-wrap{margin-top:16px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+    .ryla-gallery-wrap h4{margin:0 0 12px;color:var(--red);font:600 19px "Playfair Display"}
+    .ryla-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+    .ryla-photo-slot{min-width:0}
+    .ryla-photo-slot img{display:block;width:100%;height:auto;object-fit:contain;border-radius:8px}
+    .ryla-photo-placeholder{aspect-ratio:4/3;border:1px dashed #d9a5ac;border-radius:9px;background:#fff7f7;display:grid;place-items:center;text-align:center;padding:10px;color:#9b6970;font-size:12px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .gallery-item{aspect-ratio:1/1;background:linear-gradient(145deg,#f3dadd,#fff3f4);border-radius:10px;overflow:hidden;display:grid;place-items:center;color:#9c6670}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+    @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:500px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
   </style>
 </head>
 <body>
 <header class="nav"><div class="container navin">
-  <a class="brand" href="#home">RTR. NITHIYA<small>Leadership • Learning • Impact</small></a>
+  <a class="brand" href="#home">NITHIYA</a>
   <nav class="links" id="navLinks"><a href="#about">About</a><a href="#journey">Journey</a><a href="#dtd">DTD Journey</a><a href="#experience">Experience</a><a href="#resume">Resume</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav>
   <button class="menu" id="menuBtn" aria-label="Toggle navigation">☰</button>
 </div></header>
@@ -61,7 +93,7 @@
     <div class="actions"><a class="btn" href="#journey">Explore Her Journey ↗</a><a class="btn ghost" href="#contact">Get in Touch</a></div>
   </div>
   <div class="portrait reveal"><div class="portrait-frame" id="heroPortrait">
-    <div class="portrait-placeholder"><b>N</b><span>ADD HER PROFILE PHOTO</span></div>
+    <div class="portrait-placeholder" aria-label="Profile photo placeholder"></div>
   </div><div class="portrait-note"><strong>2026–2027</strong>Secretary – Administration<br>District Trainer Designate</div></div>
 </div></section>
 
@@ -93,7 +125,7 @@
   <div class="section-head reveal"><div class="kicker">03 / Recognition & participation</div><h2>Milestones worth remembering.</h2><p>Experiences and recognitions that have contributed to her growth as a Rotaractor and leader.</p></div>
   <div class="award-grid">
     <article class="award reveal"><div class="ico">🏆</div><h3>Best New Rotaractor</h3><p>Recognised at the Rotaract District Awards – Magudam.</p></article>
-    <article class="award reveal"><div class="ico">🌱</div><h3>EPIC Participant</h3><p>Participated in EPIC as part of her leadership and learning journey. Also, received Well-groomed award.</p></article> 
+    <article class="award reveal"><div class="ico">👔</div><h3>EPIC - RYLA Participant</h3><p>Participated in EPIC - RYLA and received the Well-groomed award.</p></article> 
     <article class="award reveal"><div class="ico">🌏</div><h3>Rotasia – Chennai</h3><p>Participated in Rotasia, Chennai, adding an international Rotaract experience to her journey.</p></article>
   </div>
 </div></section>
@@ -120,16 +152,6 @@
       <h3 style="font:600 23px 'Playfair Display';margin-bottom:12px">Performance Boosters</h3>
       <p style="font-size:13px;color:var(--muted);margin:-4px 0 14px">*RYLA is confirmed completed. Rotasia participation is recorded separately; task-book representation criteria will be confirmed before marking that booster complete.</p>
       <div id="boosterTaskList" class="task-list"></div>
-      <div class="ryla-gallery-wrap">
-        <h4>RYLA / EPIC RYLA — Photo Memories</h4>
-        <p>Add four photographs from her RYLA / EPIC RYLA experience.</p>
-        <div id="rylaPhotoGrid" class="ryla-photo-grid">
-          <div class="ryla-photo-placeholder">Photo 01</div>
-          <div class="ryla-photo-placeholder">Photo 02</div>
-          <div class="ryla-photo-placeholder">Photo 03</div>
-          <div class="ryla-photo-placeholder">Photo 04</div>
-        </div>
-      </div>
     </div>
     <div style="margin-top:28px">
       <h3 style="font:600 23px 'Playfair Display';margin-bottom:12px">Add-ons & Additional Contributions</h3>
@@ -162,10 +184,17 @@
 </div></section>
 
 <section id="gallery" style="background:#fffafa"><div class="container">
-  <div class="section-head reveal"><div class="kicker">08 / Memories</div><h2>A gallery of moments.</h2><p>From club beginnings to district experiences — a visual archive of the people, places and moments that make the journey memorable.</p></div>
-  <div class="filters" id="galleryFilters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="club">Club</button><button class="filter" data-filter="district">District</button><button class="filter" data-filter="training">Training</button><button class="filter" data-filter="professional">Professional</button></div>
   <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item"><span>Add gallery images to assets/gallery</span></div><div class="gallery-item"><span>Club memories</span></div><div class="gallery-item"><span>District events</span></div><div class="gallery-item"><span>Training moments</span></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
+    <div class="gallery-item" aria-label="Gallery image slot"></div>
   </div>
 </div></section>
 
@@ -201,7 +230,7 @@ const ADD_ONS = [
 ];
 const BOOSTERS = [
  {n:1,title:"Actively participate in District Initiatives such as ROTAMIND or ROTABUZZ",required:null,completed:0,detail:"The task book does not specify a numeric target. Add each district initiative and participation record."},
- {n:2,title:"Attend at least ONE Rotary Youth Leadership Awards (RYLA) program",required:1,completed:1,detail:"RYLA participation confirmed by the user. Add the programme details and four approved event photographs in the RYLA photo gallery below.",photos:["","","",""]},
+ {n:2,title:"Attend at least ONE Rotary Youth Leadership Awards (RYLA) program",required:1,completed:1,detail:"EPIC - RYLA participation confirmed by the user. Add up to six approved event photographs below.",photoGallery:true},
  {n:3,title:"Attend at least TWO training sessions conducted by the Co-District Trainers Designate (Co-DTDs) in their entirety and provide constructive feedback on both sessions",required:2,completed:0,detail:"Track each Co-DTD session and its feedback submission separately."},
  {n:4,title:"Participate in IDYE or Multi-District Events, such as Rotasia, by representing Rotary International District 3206",required:1,completed:0,detail:"Rotasia Chennai participation has been reported. Confirm that she participated representing Rotary International District 3206 before marking this task-book booster complete."}
 ];
@@ -209,8 +238,8 @@ const BOOSTERS = [
 const PROFILE_PHOTO = ""; // Example: "nithiya-portrait.jpg" in assets/profile/
 const PROFESSIONAL_PHOTOS = []; // Example: ["portrait-01.jpg", "portrait-02.jpg"]
 const GALLERY_PHOTOS = []; // Example: [{file:"club-01.jpg", category:"club", caption:"Club memories"}]
-/* Four photo slots for RYLA / EPIC RYLA. Add filenames from assets/gallery/. */
-const RYLA_PHOTOS = ["", "", "", ""]; // Example: ["ryla-01.jpg","ryla-02.jpg","ryla-03.jpg","ryla-04.jpg"]
+/* Add up to six EPIC - RYLA photographs from assets/gallery/. */
+const RYLA_PHOTOS = ["", "", "", "", "", ""]; // Add up to six filenames from assets/gallery/.
 const $ = id => document.getElementById(id);
 function progressText(task){
  if(task.required === null) return `${task.completed} recorded`;
@@ -226,7 +255,7 @@ function evidenceCard(label, file, isImage=false){
  if(!file) return `<div class="evidence-item"><strong>${label}</strong><span class="evidence-missing">Evidence not uploaded yet</span></div>`;
  const url=file;
  const preview=isImage ? `<img src="${url}" alt="${label}" loading="lazy">` : "";
- return `<div class="evidence-item"><strong>${label}</strong>${preview}<a href="${url}" target="_blank" rel="noopener">View / Download ↗</a></div>`;
+ return `<div class="evidence-item"><strong>${label}</strong>${preview}<a href="${url}" target="_blank" rel="noopener">View ↗</a></div>`;
 }
 function renderTaskGroup(tasks,targetId){
  const target=$(targetId);
@@ -242,7 +271,7 @@ function renderTaskGroup(tasks,targetId){
           <div class="evidence-grid">
             ${evidenceCard("Session Poster",activity.poster, true)}
             <div class="evidence-item"><strong>Action Photographs</strong>
-              ${activity.photos && activity.photos.length ? `<div class="evidence-mini-grid">${activity.photos.map((f,i)=>f?`<a href="${f}" target="_blank" rel="noopener"><img src="${f}" alt="Action photograph ${i+1}"></a>`:`<span class="evidence-missing">Action photo ${i+1}: not uploaded</span>`).join("")}</div>`:`<span class="evidence-missing">Action photographs not uploaded yet</span>`}
+              ${activity.photos && activity.photos.length ? `<div class="evidence-mini-grid">${activity.photos.map((f,i)=>f?`<img src="${f}" alt="Action photograph ${i+1}" loading="lazy">`:`<span class="evidence-missing">Action photo ${i+1}: not uploaded</span>`).join("")}</div>`:`<span class="evidence-missing">Action photographs not uploaded yet</span>`}
             </div>
             ${evidenceCard("Acknowledgement Letter",activity.acknowledgement)}
             ${evidenceCard("Participant Feedback",activity.feedback)}
@@ -257,6 +286,7 @@ function renderTaskGroup(tasks,targetId){
     </button>
     <div class="task-body">
       <p>${t.detail}</p>
+      ${t.photoGallery ? `<div class="ryla-gallery-wrap"><h4>EPIC - RYLA Memories</h4><div id="rylaPhotoGrid" class="ryla-photo-grid"></div></div>` : ""}
       ${activityMarkup}
     </div>
    </article>`;
@@ -292,33 +322,48 @@ function renderDTD(){
  $("mandatoryProgressLabel").textContent=`${completed} of ${total} tasks completed`;
  $("mandatoryProgressBar").style.width=(completed/total*100)+"%";
 }
-function addImageCard(container,src,label,downloadable=true){
+function addImageCard(container,src,label,downloadable=false){
  const card=document.createElement("div");card.className="photo";
  const img=document.createElement("img");img.src=src;img.alt=label;img.loading="lazy";
  img.onerror=()=>{card.innerHTML=`<div class="ph">${label}<br><small>Image file not found</small></div>`;};
  card.appendChild(img);
- if(downloadable){const a=document.createElement("a");a.href=src;a.download="";a.textContent="↓ Download";card.appendChild(a);}
+ 
  container.appendChild(card);
 }
 function renderRylaPhotos(){
  const grid=$("rylaPhotoGrid");
  if(!grid) return;
- grid.innerHTML=RYLA_PHOTOS.slice(0,4).map((file,i)=>{
-   if(file) return `<div class="ryla-photo-slot"><img src="assets/gallery/${file}" alt="RYLA / EPIC RYLA photograph ${i+1}" loading="lazy"><a href="assets/gallery/${file}" download>↓ Download</a></div>`;
-   return `<div class="ryla-photo-placeholder">Photo 0${i+1}<br><small>Add image filename in RYLA_PHOTOS</small></div>`;
+ grid.innerHTML=RYLA_PHOTOS.slice(0,6).map((file,i)=>{
+   if(file) return `<div class="ryla-photo-slot"><img src="assets/gallery/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`;
+   return `<div class="ryla-photo-placeholder">Photo 0${i+1}</div>`;
  }).join("");
 }
 function renderPhotos(){
  if(PROFILE_PHOTO){const frame=$("heroPortrait");frame.innerHTML="";const img=document.createElement("img");img.src="assets/profile/"+PROFILE_PHOTO;img.alt="Rtr. Nithiya";frame.appendChild(img);}
  if(PROFESSIONAL_PHOTOS.length){const grid=$("professionalGrid");grid.innerHTML="";PROFESSIONAL_PHOTOS.forEach((f,i)=>addImageCard(grid,"assets/professional-photos/"+f,"Professional photograph "+(i+1)));}
- if(GALLERY_PHOTOS.length){const grid=$("galleryGrid");grid.innerHTML="";GALLERY_PHOTOS.forEach(item=>{const card=document.createElement("div");card.className="gallery-item";card.dataset.category=item.category;const img=document.createElement("img");img.src="assets/gallery/"+item.file;img.alt=item.caption||"Nithiya gallery image";img.loading="lazy";img.onerror=()=>{card.innerHTML="<span>Image not found: "+item.file+"</span>";};card.appendChild(img);grid.appendChild(card);});}
+ {
+ const grid=$("galleryGrid");
+ if(grid){
+   grid.innerHTML="";
+   for(let i=0;i<10;i++){
+     const item=GALLERY_PHOTOS[i];
+     const card=document.createElement("div");
+     card.className="gallery-item";
+     if(item && item.file){
+       const img=document.createElement("img");
+       img.src="assets/gallery/"+item.file;
+       img.alt=item.caption||"Nithiya gallery image";
+       img.loading="lazy";
+       img.onerror=()=>{card.innerHTML="";};
+       card.appendChild(img);
+     }
+     grid.appendChild(card);
+   }
+ }
+}
 }
 $("menuBtn").addEventListener("click",()=>$("navLinks").classList.toggle("show"));
 document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>$("navLinks").classList.remove("show")));
-document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
- const f=btn.dataset.filter;document.querySelectorAll(".gallery-item").forEach(item=>item.style.display=(f==="all"||item.dataset.category===f)?"grid":"none");
-}));
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 $("year").textContent=new Date().getFullYear();
