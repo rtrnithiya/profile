@@ -79,19 +79,34 @@
     .portrait-note{display:none}
     .task-completed-detail{margin:7px 0 14px!important;color:var(--muted)}
     .action-photo-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:9px}
-    .action-photo-frame{width:100%;aspect-ratio:16/9;background:#fff7f7;border:1px dashed #d9a5ac;border-radius:9px;overflow:hidden}
-    .action-photo-frame img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+    .action-photo-frame{width:100%;height:auto;background:#fff7f7;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+    .action-photo-frame img{width:100%;height:auto;max-height:none;object-fit:contain;display:block;background:#fff}
     #gallery .section-head{margin-bottom:24px}
-    .featured-professional-photo{width:min(360px,100%);aspect-ratio:4/5;margin:0 0 22px;border-radius:12px;overflow:hidden;background:#fff0f1;display:grid;place-items:center;color:#9c6670}
-    .featured-professional-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .featured-professional-photo{width:min(520px,100%);height:auto;margin:0 0 10px;border-radius:12px;overflow:visible;background:transparent;display:block;color:#9c6670}
+    .featured-professional-photo img{width:100%;height:auto;max-height:none;object-fit:contain;display:block;border-radius:12px}
     #gallery .gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-    #gallery .gallery-item{aspect-ratio:1/1;background:#fff0f1;border-radius:10px;overflow:hidden}
-    #gallery .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+    #gallery .gallery-item{min-width:0;height:auto;aspect-ratio:auto;background:#fff0f1;border-radius:10px;overflow:hidden;display:block}
+    #gallery .gallery-item img{width:100%;height:auto;max-height:none;object-fit:contain;display:block}
     .ryla-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .ryla-photo-slot{aspect-ratio:4/3;overflow:hidden;border-radius:9px;background:#fff7f7}
-    .ryla-photo-slot img{width:100%;height:100%;object-fit:contain;display:block}
+    .ryla-photo-slot{min-width:0;height:auto;overflow:visible;border-radius:9px;background:#fff7f7}
+    .ryla-photo-slot img{width:100%;height:auto;max-height:none;object-fit:contain;display:block;border-radius:9px}
     @media(max-width:800px){#gallery .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:500px){#gallery .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+    .initiative-memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
+    .initiative-memory{margin:0;min-width:0;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fffafa}
+    .initiative-memory img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:7px}
+    .initiative-memory figcaption{font-size:12px;color:var(--muted);padding:8px 2px 2px}
+    .ryla-experience{margin:14px 0;padding:18px;background:#fff;border:1px solid var(--line);border-radius:10px;color:var(--ink)}
+    .ryla-experience h3{font:600 22px "Playfair Display";color:var(--red);margin-bottom:4px}
+    .ryla-experience .ryla-date{font-size:12px;color:var(--muted);margin:0 0 12px}
+    .ryla-experience p{margin:9px 0;color:var(--muted)}
+    .ryla-experience ul{margin:5px 0 12px;padding-left:20px;color:var(--muted)}
+    .ryla-experience strong{display:block;margin-top:12px;color:var(--ink)}
+    .professional-download{display:inline-flex;margin:0 0 24px;padding:9px 14px;border:1px solid var(--red);border-radius:7px;color:var(--red);font-size:12px;font-weight:700}
+    .professional-download:hover{background:var(--red);color:#fff}
+    @media(max-width:600px){.initiative-memory-grid{grid-template-columns:1fr}}
 
   </style>
 </head>
@@ -192,7 +207,7 @@
   <p style="font-size:12px;color:#8b7c7e;margin:12px 4px 0">Add the PDF files to the documents folder using the exact filenames above. Until then, these download links will not have a file to download.</p>
 </div></section>
 
-<section id="gallery"><div class="container"><div class="section-head reveal"><div class="kicker">07 / Gallery</div><h2>Gallery.</h2></div><div class="featured-professional-photo" id="featuredProfessionalPhoto"><div class="featured-photo-placeholder">Professional Photo</div></div><div class="gallery-grid" id="galleryGrid"><div class="gallery-item" aria-label="Gallery image 01"></div><div class="gallery-item" aria-label="Gallery image 02"></div><div class="gallery-item" aria-label="Gallery image 03"></div><div class="gallery-item" aria-label="Gallery image 04"></div><div class="gallery-item" aria-label="Gallery image 05"></div><div class="gallery-item" aria-label="Gallery image 06"></div><div class="gallery-item" aria-label="Gallery image 07"></div><div class="gallery-item" aria-label="Gallery image 08"></div><div class="gallery-item" aria-label="Gallery image 09"></div><div class="gallery-item" aria-label="Gallery image 10"></div></div></div></section>
+<section id="gallery"><div class="container"><div class="section-head reveal"><div class="kicker">07 / Gallery</div><h2>Gallery.</h2></div><div class="featured-professional-photo" id="featuredProfessionalPhoto"><div class="featured-photo-placeholder">Professional Photo</div></div><a class="professional-download" id="professionalPhotoDownload" href="assets/evidence/nithiya-professional-01.jpeg" download="nithiya-professional-photo.jpeg">↓ Download Professional Photo</a><div class="gallery-grid" id="galleryGrid"><div class="gallery-item" aria-label="Gallery image 01"></div><div class="gallery-item" aria-label="Gallery image 02"></div><div class="gallery-item" aria-label="Gallery image 03"></div><div class="gallery-item" aria-label="Gallery image 04"></div><div class="gallery-item" aria-label="Gallery image 05"></div><div class="gallery-item" aria-label="Gallery image 06"></div><div class="gallery-item" aria-label="Gallery image 07"></div><div class="gallery-item" aria-label="Gallery image 08"></div><div class="gallery-item" aria-label="Gallery image 09"></div><div class="gallery-item" aria-label="Gallery image 10"></div></div></div></section>
 
 <section class="contact" id="contact"><div class="container contact-grid">
   <div class="section-head reveal"><div class="kicker">08 / Connect</div><h2>Let’s connect<br>and collaborate.</h2><p>For professional opportunities, communication projects, Rotaract connections and meaningful collaborations.</p></div>
@@ -225,24 +240,24 @@ const ADD_ONS = [
   // Add extra contributions here, e.g. { title: "Additional training session", date: "DD Mon YYYY", description: "Details of contribution" }
 ];
 const BOOSTERS = [
- {n:1,title:"Actively participate in District Initiatives such as ROTAMIND or ROTABUZZ",required:null,completed:0,detail:""},
- {n:2,title:"Attend at least ONE Rotary Youth Leadership Awards (RYLA) program",required:1,completed:1,detail:"",photoGallery:true},
+ {n:1,title:"Actively participate in District Initiatives",required:null,completed:2,detail:"Actively participating in District Initiatives.",initiatives:[{file:"district-initiative-01.jpg",caption:"Rotamind – October Edition"},{file:"district-initiative-02.jpg",caption:"Rotabuzz – October Edition"}]},
+ {n:2,title:"Attend at least ONE Rotary Youth Leadership Awards (RYLA) program",required:1,completed:1,detail:"Completed: EPIC RYLA | 13–15 November 2026 | Rotaract District 3206.",photoGallery:true,experience:{heading:"EPIC RYLA – My Experience",date:"November 13–15 · Rotaract District 3206",paragraphs:["Some experiences teach you lessons, some introduce you to wonderful people, and some leave you with memories that stay long after the event ends. EPIC RYLA was a beautiful combination of all three!","I had the opportunity to be a delegate at EPIC RYLA, hosted by Rotaract Club of NIET under Rotaract District 3206.","The three days were filled with learning, challenges, teamwork, and plenty of fun!"],sessions:["The Art of Leadership","The Art of Mindfulness","The Art of Achieving"],beyond:"Rifle shooting, outbound training, team challenges and activities that pushed me beyond my comfort zone.",recognition:"I was also recognised as the Best Dressed Female Participant, making the experience even more memorable.",closing:"I returned with new learnings, wonderful friendships, countless memories, and of course, a whole lot of body pain! 😄",signoff:"The name said EPIC, and the experience lived up to every bit of it!"}},
  {n:3,title:"Attend at least TWO training sessions conducted by the Co-District Trainers Designate (Co-DTDs) in their entirety and provide constructive feedback on both sessions",required:2,completed:0,detail:""},
  {n:4,title:"Participate in IDYE or Multi-District Events, such as Rotasia, by representing Rotary International District 3206",required:1,completed:0,detail:""}
 ];
 /* Add approved image filenames here after uploading them to the matching folders. */
 const PROFILE_PHOTO = "nithiya-profile.jpeg"; // assets/evidence/
 const PROFESSIONAL_PHOTO = "nithiya-professional-01.jpeg"; // assets/evidence/
-const GALLERY_PHOTOS = ["gallery-01.jpg","gallery-02.jpg","gallery-03.jpg","gallery-04.jpg","gallery-05.jpg","gallery-06.jpg","gallery-07.jpg","gallery-08.jpg","gallery-09.jpg","gallery-10.jpg"]; // assets/evidence/
+const GALLERY_PHOTOS = ["gallery-01.jpg","gallery-02.jpg","","","","","","","",""]; // Add more filenames as you upload them to assets/evidence/
 /* Add up to six EPIC - RYLA photographs from assets/gallery/. */
 const RYLA_PHOTOS = ["epic-ryla-01.jpeg","epic-ryla-02.jpeg","epic-ryla-03.jpg","epic-ryla-04.jpg","epic-ryla-05.jpeg","epic-ryla-06.jpeg"]; // assets/evidence/
 const $ = id => document.getElementById(id);
 function progressText(task){
- if(task.required === null) return `${task.completed} recorded`;
+ if(task.required === null) return task.completed ? "Actively participating" : "Pending";
  return `${task.completed}/${task.required} Completed`;
 }
 function taskStatus(task){
- if(task.required === null) return task.completed ? "Participation recorded" : "Awaiting records";
+ if(task.required === null) return task.completed ? "Actively participating" : "Pending";
  if(task.completed >= task.required) return "Completed";
  if(task.completed > 0) return "Partially completed";
  return "Pending";
@@ -282,7 +297,9 @@ function renderTaskGroup(tasks,targetId){
     </button>
     <div class="task-body">
       ${t.detail ? `<p class="task-completed-detail">${t.detail}</p>` : ""}
-      ${t.photoGallery ? `<div class="ryla-gallery-wrap"><h4>EPIC - RYLA Memories</h4><div id="rylaPhotoGrid" class="ryla-photo-grid"></div></div>` : ""}
+      ${t.initiatives ? `<div class="initiative-memory-grid">${t.initiatives.map(item=>`<figure class="initiative-memory"><img src="assets/evidence/${item.file}" alt="${item.caption}" loading="lazy"><figcaption>${item.caption}</figcaption></figure>`).join("")}</div>` : ""}
+      ${t.experience ? `<div class="ryla-experience"><h3>${t.experience.heading}</h3><p class="ryla-date">${t.experience.date}</p>${t.experience.paragraphs.map(p=>`<p>${p}</p>`).join("")}<strong>Key Learning Sessions</strong><ul>${t.experience.sessions.map(s=>`<li>${s}</li>`).join("")}</ul><strong>Beyond the Sessions</strong><p>${t.experience.beyond}</p><strong>A Special Recognition</strong><p>${t.experience.recognition}</p><p>${t.experience.closing}</p><p><em>${t.experience.signoff}</em></p></div>` : ""}
+      ${t.photoGallery ? `<div class="ryla-gallery-wrap"><h4>EPIC – RYLA Memories</h4><div id="rylaPhotoGrid" class="ryla-photo-grid"></div></div>` : ""}
       ${activityMarkup}
     </div>
    </article>`;
@@ -352,6 +369,8 @@ function renderPhotos(){
     img.src="assets/evidence/"+PROFESSIONAL_PHOTO;
     img.alt="Nithiya professional photograph"; img.loading="lazy";
     featured.appendChild(img);
+    const downloadLink=$("professionalPhotoDownload");
+    if(downloadLink){downloadLink.href="assets/evidence/"+PROFESSIONAL_PHOTO;downloadLink.download="nithiya-professional-photo.jpeg";}
   }
   const grid=$("galleryGrid");
   if(grid){
