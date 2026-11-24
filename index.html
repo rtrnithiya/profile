@@ -210,7 +210,7 @@
    Add further activities only after confirming their completion and evidence. */
 const MANDATORY_TASKS = [
  {n:1,title:"Serve as the Master of Ceremonies / Event Anchor for TWO Rotaract or Rotary events",required:2,completed:0,detail:""},
- {n:2,title:"Conduct ONE Individual Development Program for a Government School, Government-Aided School, or an Interact Club",required:1,completed:1,detail:"Completed: Unplug to Unwind — A Session on Digital Detoxing | 6 November 2026 | Sri Ramakrishna Matriculation Higher Secondary School, Peelamedu.",activities:[{title:"Unplug to Unwind — Digital Detoxing",date:"6 November 2026",poster:"assets/task-02-unplug-to-unwind-poster.jpg",photos:["assets/unplug-to-unwind-action-01.jpeg","assets/unplug-to-unwind-action-02.jpeg","assets/unplug-to-unwind-action-03.jpeg"],acknowledgement:"",feedback:""}]},
+ {n:2,title:"Conduct ONE Individual Development Program for a Government School, Government-Aided School, or an Interact Club",required:1,completed:1,detail:"Completed: Unplug to Unwind — A Session on Digital Detoxing | 6 November 2026 | Sri Ramakrishna Matriculation Higher Secondary School, Peelamedu.",activities:[{title:"Unplug to Unwind — Digital Detoxing",date:"6 November 2026",poster:"assets/evidence/task-02-unplug-to-unwind-poster.jpg",photos:["assets/evidence/unplug-to-unwind-action-01.jpeg","assets/evidence/unplug-to-unwind-action-02.jpeg","assets/evidence/unplug-to-unwind-action-03.jpeg"],acknowledgement:"",feedback:""}]},
  {n:3,title:"Collaborate with at least ONE other District Trainer Designate to conduct a session promoting ONE District Priority Project – O.N.E.",required:1,completed:0,detail:""},
  {n:4,title:"Conduct TWO Individual Development Programs for Rotaract Clubs – one University-Based and one Community-Based",required:2,completed:0,detail:""},
  {n:5,title:"Induct at least TWO new members into a Community-Based Rotaract Club within Rotary International District 3206",required:2,completed:0,detail:""},
@@ -231,8 +231,8 @@ const BOOSTERS = [
  {n:4,title:"Participate in IDYE or Multi-District Events, such as Rotasia, by representing Rotary International District 3206",required:1,completed:0,detail:""}
 ];
 /* Add approved image filenames here after uploading them to the matching folders. */
-const PROFILE_PHOTO = "nithiya-profile.jpeg"; // assets/profile/
-const PROFESSIONAL_PHOTO = "nithiya-professional-01.jpeg"; // assets/professional-photos/
+const PROFILE_PHOTO = "nithiya-profile.jpeg"; // assets/evidence/profile/
+const PROFESSIONAL_PHOTO = "nithiya-professional-01.jpeg"; // assets/evidence/professional-photos/
 const GALLERY_PHOTOS = []; // Add future Gallery filenames here; keep files in assets/.
 /* Add up to six EPIC - RYLA photographs from assets/gallery/. */
 const RYLA_PHOTOS = ["epic-ryla-01.jpeg","epic-ryla-02.jpeg","epic-ryla-03.jpeg","epic-ryla-04.jpeg","epic-ryla-05.jpeg","epic-ryla-06.jpeg"]; // Add more filenames here as needed; keep files in assets/.
@@ -291,7 +291,7 @@ function renderTaskGroup(tasks,targetId){
    const card=btn.closest(".task-card");card.classList.toggle("open");
     const rylaGrid=card.querySelector("#rylaPhotoGrid");
     if(card.classList.contains("open") && rylaGrid && !rylaGrid.dataset.rendered){
-      rylaGrid.innerHTML=RYLA_PHOTOS.map((file,i)=>`<div class="ryla-photo-slot"><img src="assets/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`).join("");
+      rylaGrid.innerHTML=RYLA_PHOTOS.map((file,i)=>`<div class="ryla-photo-slot"><img src="assets/evidence/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`).join("");
       rylaGrid.dataset.rendered="true";
     }
    btn.setAttribute("aria-expanded",card.classList.contains("open")?"true":"false");
@@ -335,21 +335,21 @@ function renderRylaPhotos(){
  const grid=$("rylaPhotoGrid");
  if(!grid) return;
  grid.innerHTML=RYLA_PHOTOS.slice(0,6).map((file,i)=>{
-   if(file) return `<div class="ryla-photo-slot"><img src="assets/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`;
+   if(file) return `<div class="ryla-photo-slot"><img src="assets/evidence/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`;
    return `<div class="ryla-photo-placeholder">Photo 0${i+1}</div>`;
  }).join("");
 }
 function renderPhotos(){
   if(PROFILE_PHOTO){
     const frame=$("heroPortrait"); frame.innerHTML="";
-    const img=document.createElement("img"); img.src="assets/"+PROFILE_PHOTO;
+    const img=document.createElement("img"); img.src="assets/evidence/"+PROFILE_PHOTO;
     img.alt="Rtr. Nithiya"; frame.appendChild(img);
   }
   const featured=$("featuredProfessionalPhoto");
   if(featured && PROFESSIONAL_PHOTO){
     featured.innerHTML="";
     const img=document.createElement("img");
-    img.src="assets/"+PROFESSIONAL_PHOTO;
+    img.src="assets/evidence/"+PROFESSIONAL_PHOTO;
     img.alt="Nithiya professional photograph"; img.loading="lazy";
     featured.appendChild(img);
   }
@@ -360,7 +360,7 @@ function renderPhotos(){
       const card=document.createElement("div"); card.className="gallery-item";
       const file=GALLERY_PHOTOS[i];
       if(file){
-        const img=document.createElement("img"); img.src="assets/"+file;
+        const img=document.createElement("img"); img.src="assets/evidence/"+file;
         img.alt="Nithiya gallery photograph "+(i+1); img.loading="lazy";
         card.appendChild(img);
       }
