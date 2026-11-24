@@ -88,8 +88,8 @@
     #gallery .gallery-item{aspect-ratio:1/1;background:#fff0f1;border-radius:10px;overflow:hidden}
     #gallery .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
     .ryla-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .ryla-photo-slot{min-width:0;overflow:hidden;border-radius:9px;background:#fff7f7}
-    .ryla-photo-slot img{width:100%;height:auto;object-fit:contain;display:block;border-radius:9px}
+    .ryla-photo-slot{aspect-ratio:4/3;overflow:hidden;border-radius:9px;background:#fff7f7}
+    .ryla-photo-slot img{width:100%;height:100%;object-fit:contain;display:block}
     @media(max-width:800px){#gallery .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:500px){#gallery .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ryla-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
@@ -210,7 +210,7 @@
    Add further activities only after confirming their completion and evidence. */
 const MANDATORY_TASKS = [
  {n:1,title:"Serve as the Master of Ceremonies / Event Anchor for TWO Rotaract or Rotary events",required:2,completed:0,detail:""},
- {n:2,title:"Conduct ONE Individual Development Program for a Government School, Government-Aided School, or an Interact Club",required:1,completed:1,detail:"Completed: Unplug to Unwind — A Session on Digital Detoxing | 6 November 2026 | Sri Ramakrishna Matriculation Higher Secondary School, Peelamedu.",activities:[{title:"Unplug to Unwind — Digital Detoxing",date:"6 November 2026",poster:"assets/evidence/task-02-unplug-to-unwind-poster.jpg",photos:["assets/evidence/unplug-to-unwind-action-01.jpeg","assets/evidence/unplug-to-unwind-action-02.jpeg","assets/evidence/unplug-to-unwind-action-03.jpeg"],acknowledgement:"",feedback:""}]},
+ {n:2,title:"Conduct ONE Individual Development Program for a Government School, Government-Aided School, or an Interact Club",required:1,completed:1,detail:"Completed: Unplug to Unwind — A Session on Digital Detoxing | 6 November 2026 | Sri Ramakrishna Matriculation Higher Secondary School, Peelamedu.",activities:[{title:"Unplug to Unwind — Digital Detoxing",date:"6 November 2026",poster:"assets/evidence/task-02-unplug-to-unwind-poster.jpg",photos:["assets/evidence/unplug-to-unwind-action-01.jpeg","assets/evidence/unplug-to-unwind-action-02.jpeg","assets/evidence/unplug-to-unwind-action-03.jpeg"],acknowledgement:"assets/evidence/unplug-to-unwind-acknowledgement.jpeg",feedback:""}]},
  {n:3,title:"Collaborate with at least ONE other District Trainer Designate to conduct a session promoting ONE District Priority Project – O.N.E.",required:1,completed:0,detail:""},
  {n:4,title:"Conduct TWO Individual Development Programs for Rotaract Clubs – one University-Based and one Community-Based",required:2,completed:0,detail:""},
  {n:5,title:"Induct at least TWO new members into a Community-Based Rotaract Club within Rotary International District 3206",required:2,completed:0,detail:""},
@@ -218,7 +218,7 @@ const MANDATORY_TASKS = [
  {n:7,title:"Prepare a presentation on General Rotaract Orientation and deliver the session to the District Trainers during the Relay Meeting",required:1,completed:0,detail:""},
  {n:8,title:"Design and conduct ONE session on a domain-specific topic for the District Trainers during the Relay Meeting",required:1,completed:0,detail:""},
  {n:9,title:"Create and publish 60 to 90-second short-form videos on Club social media after review with the District Trainers Wing",required:null,completed:0,detail:""},
- {n:10,title:"Plan and conduct ONE virtual Individual Development Program for Rotaract Clubs belonging to other Rotary International Districts",required:1,completed:1,detail:"Completed: The Excellence Code — Plan with Precision. Perform with Excellence. | 21 November 2026, 7:00 PM | Google Meet | Rotary International District 3203 | Role: Guest Speaker.",activities:[{title:"The Excellence Code — Plan with Precision. Perform with Excellence.",date:"21 November 2026",poster:"assets/evidence/task-10-the-excellence-code-poster.png",photos:[],acknowledgement:"",feedback:""}]},
+ {n:10,title:"Plan and conduct ONE virtual Individual Development Program for Rotaract Clubs belonging to other Rotary International Districts",required:1,completed:1,detail:"Completed: The Excellence Code — Plan with Precision. Perform with Excellence. | 21 November 2026, 7:00 PM | Google Meet | Rotary International District 3203 | Role: Guest Speaker.",activities:[{title:"The Excellence Code — Plan with Precision. Perform with Excellence.",date:"21 November 2026",poster:"assets/evidence/task-10-the-excellence-code-poster.jpeg",photos:["assets/evidence/the-excellence-code-action-01.jpeg","assets/evidence/the-excellence-code-action-02.jpeg","assets/evidence/the-excellence-code-action-03.jpeg"],acknowledgement:"assets/evidence/task-10-the-excellence-code-acknowledgement.jpeg",feedback:""}]},
  {n:11,title:"Conduct ONE session on any relevant topic for a non-Rotaract and non-Rotary community audience",required:1,completed:0,detail:""}
 ];
 const ADD_ONS = [
@@ -231,11 +231,11 @@ const BOOSTERS = [
  {n:4,title:"Participate in IDYE or Multi-District Events, such as Rotasia, by representing Rotary International District 3206",required:1,completed:0,detail:""}
 ];
 /* Add approved image filenames here after uploading them to the matching folders. */
-const PROFILE_PHOTO = "nithiya-profile.jpeg"; // assets/evidence/profile/
-const PROFESSIONAL_PHOTO = "nithiya-professional-01.jpeg"; // assets/evidence/professional-photos/
-const GALLERY_PHOTOS = []; // Add future Gallery filenames here; keep files in assets/.
+const PROFILE_PHOTO = "nithiya-profile.jpeg"; // assets/profile/
+const PROFESSIONAL_PHOTO = "nithiya-professional-01.jpeg"; // assets/professional-photos/
+const GALLERY_PHOTOS = ["gallery-01.jpg","gallery-02.jpg","gallery-03.jpg","gallery-04.jpg","gallery-05.jpg","gallery-06.jpg","gallery-07.jpg","gallery-08.jpg","gallery-09.jpg","gallery-10.jpg"]; // assets/gallery/
 /* Add up to six EPIC - RYLA photographs from assets/gallery/. */
-const RYLA_PHOTOS = ["epic-ryla-01.jpeg","epic-ryla-02.jpeg","epic-ryla-03.jpg","epic-ryla-04.jpg","epic-ryla-05.jpeg","epic-ryla-06.jpeg"]; // Add more filenames here as needed; keep files in assets/.
+const RYLA_PHOTOS = ["epic-ryla-01.jpeg","epic-ryla-02.jpeg","epic-ryla-03.jpeg","epic-ryla-04.jpeg","epic-ryla-05.jpeg","epic-ryla-06.jpeg"]; // assets/gallery/
 const $ = id => document.getElementById(id);
 function progressText(task){
  if(task.required === null) return `${task.completed} recorded`;
@@ -269,7 +269,7 @@ function renderTaskGroup(tasks,targetId){
             <div class="evidence-item"><strong>Action Photographs</strong>
               ${activity.photos && activity.photos.length ? `<div class="action-photo-grid">${activity.photos.map((f,i)=>`<div class="action-photo-frame"><img src="${f}" alt="Action photograph ${i+1}" loading="lazy"></div>`).join("")}</div>`:`<span class="evidence-missing">Action photographs not uploaded yet</span>`}
             </div>
-            ${evidenceCard("Acknowledgement Letter",activity.acknowledgement)}
+            ${evidenceCard("Acknowledgement Letter",activity.acknowledgement, true)}
             ${evidenceCard("Participant Feedback",activity.feedback)}
           </div>
         </div>
@@ -291,7 +291,7 @@ function renderTaskGroup(tasks,targetId){
    const card=btn.closest(".task-card");card.classList.toggle("open");
     const rylaGrid=card.querySelector("#rylaPhotoGrid");
     if(card.classList.contains("open") && rylaGrid && !rylaGrid.dataset.rendered){
-      rylaGrid.innerHTML=RYLA_PHOTOS.map((file,i)=>`<div class="ryla-photo-slot"><img src="assets/evidence/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`).join("");
+      rylaGrid.innerHTML=RYLA_PHOTOS.map((file,i)=>`<div class="ryla-photo-slot"><img src="assets/gallery/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`).join("");
       rylaGrid.dataset.rendered="true";
     }
    btn.setAttribute("aria-expanded",card.classList.contains("open")?"true":"false");
@@ -335,21 +335,21 @@ function renderRylaPhotos(){
  const grid=$("rylaPhotoGrid");
  if(!grid) return;
  grid.innerHTML=RYLA_PHOTOS.slice(0,6).map((file,i)=>{
-   if(file) return `<div class="ryla-photo-slot"><img src="assets/evidence/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`;
+   if(file) return `<div class="ryla-photo-slot"><img src="assets/gallery/${file}" alt="EPIC - RYLA photograph ${i+1}" loading="lazy"></div>`;
    return `<div class="ryla-photo-placeholder">Photo 0${i+1}</div>`;
  }).join("");
 }
 function renderPhotos(){
   if(PROFILE_PHOTO){
     const frame=$("heroPortrait"); frame.innerHTML="";
-    const img=document.createElement("img"); img.src="assets/evidence/"+PROFILE_PHOTO;
+    const img=document.createElement("img"); img.src="assets/profile/"+PROFILE_PHOTO;
     img.alt="Rtr. Nithiya"; frame.appendChild(img);
   }
   const featured=$("featuredProfessionalPhoto");
   if(featured && PROFESSIONAL_PHOTO){
     featured.innerHTML="";
     const img=document.createElement("img");
-    img.src="assets/evidence/"+PROFESSIONAL_PHOTO;
+    img.src="assets/professional-photos/"+PROFESSIONAL_PHOTO;
     img.alt="Nithiya professional photograph"; img.loading="lazy";
     featured.appendChild(img);
   }
@@ -360,7 +360,7 @@ function renderPhotos(){
       const card=document.createElement("div"); card.className="gallery-item";
       const file=GALLERY_PHOTOS[i];
       if(file){
-        const img=document.createElement("img"); img.src="assets/evidence/"+file;
+        const img=document.createElement("img"); img.src="assets/gallery/"+file;
         img.alt="Nithiya gallery photograph "+(i+1); img.loading="lazy";
         card.appendChild(img);
       }
