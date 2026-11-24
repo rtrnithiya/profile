@@ -108,6 +108,22 @@
     .professional-download:hover{background:var(--red);color:#fff}
     @media(max-width:600px){.initiative-memory-grid{grid-template-columns:1fr}}
 
+
+    .addon-entry{background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+    .addon-head,.addon-month-head{width:100%;border:0;background:#fff;padding:15px 17px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;cursor:pointer;color:var(--ink)}
+    .addon-head strong{display:block;color:var(--red);font-size:14px}
+    .addon-arrow{color:var(--red);font-size:18px;transition:transform .2s;flex:0 0 auto}
+    .addon-entry.open>.addon-head .addon-arrow,.addon-month.open>.addon-month-head .addon-arrow{transform:rotate(180deg)}
+    .addon-month-list{display:none;padding:0 12px 12px}
+    .addon-entry.open>.addon-month-list{display:block}
+    .addon-month{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-top:9px;background:#fffafa}
+    .addon-month-head{padding:12px 14px;background:#fffafa}
+    .addon-month-head strong{font-size:13px;color:var(--ink)}
+    .addon-month-content{display:none;padding:0 14px 14px}
+    .addon-month.open .addon-month-content{display:block}
+    .addon-month-content img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:8px;margin-top:8px}
+    .addon-month-content p{margin:8px 0 0;color:var(--muted);font-size:13px}
+    .addon-month-content .addon-date{font-size:12px;color:var(--muted);margin-top:8px}
   </style>
 </head>
 <body>
@@ -237,7 +253,19 @@ const MANDATORY_TASKS = [
  {n:11,title:"Conduct ONE session on any relevant topic for a non-Rotaract and non-Rotary community audience",required:1,completed:0,detail:""}
 ];
 const ADD_ONS = [
-  // Add extra contributions here, e.g. { title: "Additional training session", date: "DD Mon YYYY", description: "Details of contribution" }
+  {
+    title: "Mentor and Mentee Meetings",
+    months: [
+      {
+        month: "October 2026",
+        date: "Add meeting date",
+        image: "mentor-mentee-meeting-october-2026.jpeg",
+        description: "October mentor and mentee meeting."
+      }
+      // Add future months here using the same format.
+      // Example: { month: "November 2026", date: "Meeting date", image: "mentor-mentee-meeting-november-2026.jpeg", description: "November mentor and mentee meeting." }
+    ]
+  }
 ];
 const BOOSTERS = [
  {n:1,title:"Actively participate in District Initiatives",required:null,completed:2,detail:"Actively participating in District Initiatives.",initiatives:[{file:"district-initiative-01.jpg",caption:"Rotamind – October Edition"},{file:"district-initiative-02.jpg",caption:"Rotabuzz – October Edition"}]},
@@ -319,12 +347,45 @@ function renderTaskGroup(tasks,targetId){
  }));
 }
 function renderAddons(){
- const el=$("addonsList");
- if(!ADD_ONS.length){
-   el.innerHTML='<div class="addon-card"><strong>Additional contributions will appear here.</strong>Use the ADD_ONS list in the website script to add activities beyond the official task book.</div>';
-   return;
- }
- el.innerHTML=ADD_ONS.map(item=>`<div class="addon-card"><strong>${item.title}</strong>${item.date||""}${item.description?" — "+item.description:""}</div>`).join("");
+  const el=$("addonsList");
+  if(!ADD_ONS.length){
+    el.innerHTML='<div class="addon-card"><strong>Additional contributions will appear here.</strong>Future mentor and mentee meetings, additional sessions and contributions can be added here.</div>';
+    return;
+  }
+  el.innerHTML=ADD_ONS.map(section=>`
+    <article class="addon-entry">
+      <button class="addon-head" type="button" aria-expanded="false">
+        <strong>${section.title}</strong>
+        <span class="addon-arrow">⌄</span>
+      </button>
+      <div class="addon-month-list">
+        ${(section.months||[]).map(item=>`
+          <section class="addon-month">
+            <button class="addon-month-head" type="button" aria-expanded="false">
+              <strong>${item.month||"Month to be added"}</strong>
+              <span class="addon-arrow">⌄</span>
+            </button>
+            <div class="addon-month-content">
+              ${item.date ? `<p class="addon-date">${item.date}</p>` : ""}
+              ${item.image ? `<img src="assets/evidence/${item.image}" alt="${section.title} — ${item.month||""}" loading="lazy">` : '<span class="evidence-missing">Meeting photograph will be added.</span>'}
+              ${item.description ? `<p>${item.description}</p>` : ""}
+            </div>
+          </section>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
+
+  el.querySelectorAll(".addon-head").forEach(button=>button.addEventListener("click",()=>{
+    const card=button.closest(".addon-entry");
+    card.classList.toggle("open");
+    button.setAttribute("aria-expanded",card.classList.contains("open")?"true":"false");
+  }));
+  el.querySelectorAll(".addon-month-head").forEach(button=>button.addEventListener("click",()=>{
+    const month=button.closest(".addon-month");
+    month.classList.toggle("open");
+    button.setAttribute("aria-expanded",month.classList.contains("open")?"true":"false");
+  }));
 }
 function renderDTD(){
  renderTaskGroup(MANDATORY_TASKS,"mandatoryTaskList");
